@@ -5,7 +5,7 @@ provider: Voiceflow
 providerId: voiceflow
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: partial
 tags:
 - AI
 - Conversational
@@ -15,10 +15,15 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Voiceflow. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps view of Voiceflow. Voiceflow uses transparent usage-based billing
+  scaled by conversation volume. Two purchase paths exist: agency/partner workspaces with
+  white-labeling, and business/enterprise contracts with implementation support and
+  multi-channel deployment. Per-conversation rate sheet not openly listed.
+notes: Verify per-conversation cost in workspace dashboard; LLM tokens are passed through to underlying provider.
 sources:
-- https://www.voiceflow.com/
+- https://www.voiceflow.com/pricing
+- https://docs.voiceflow.com/
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -29,7 +34,7 @@ alignedWith:
 publisherName: Voiceflow
 serviceCategory: AI
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Usage-Based (Per Conversation)
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
@@ -37,7 +42,7 @@ billingModel:
   - Purchase
   - Adjustment
 focusColumns:
-  ServiceName: Voiceflow
+  ServiceName: Voiceflow Conversations API
   ServiceCategory: AI
   ProviderName: Voiceflow
   PublisherName: Voiceflow
@@ -45,22 +50,37 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: conversations
+  description: Conversation count.
+  unit: conversation
   aggregation: sum
   dimensions:
   - account
-  - resource
+  - workspace
+  - agent
+- name: workspace_seats
+  description: Workspace seats / collaborators.
+  unit: seat-month
+  aggregation: max
+  dimensions:
+  - account
+  - workspace
+- name: llm_tokens
+  description: LLM tokens consumed (provider pass-through).
+  unit: token
+  aggregation: sum
+  dimensions:
+  - account
+  - model
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Track conversations per agent in Voiceflow workspace dashboard.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag agents to consuming line of business / customer.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Right-size agency vs business plan based on conversation volume; cap LLM token spend by tuning agent flows.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign workspace owner per agent / customer; centralized billing on Team / Enterprise tiers.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

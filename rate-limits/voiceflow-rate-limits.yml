@@ -5,7 +5,7 @@ provider: Voiceflow
 providerId: voiceflow
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: partial
 tags:
 - AI
 - Conversational
@@ -15,21 +15,30 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Voiceflow. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Voiceflow rate-limits primarily through plan-tier conversation quotas and concurrency
+  caps. Per-RPS HTTP limits are not publicly documented; usage-based billing means
+  high-volume customers should consult sales for negotiated throughput.
+notes: Plan-tier conversation quotas are the documented scaling lever.
 sources:
-- https://www.voiceflow.com/
+- https://www.voiceflow.com/pricing
+- https://docs.voiceflow.com/
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Conversations per Plan
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: conversations
+  limit: see plan tier
+- name: HTTP Requests
+  scope: account
+  metric: requests
+  limit: not publicly documented
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+- name: Streaming Choice
+  description: Use SSE Interact endpoint for low-latency streaming responses to reduce per-request overhead.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
