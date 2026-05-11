@@ -57,6 +57,25 @@ common:
     url: rate-limits/voiceflow-rate-limits.yml
   - type: FinOps
     url: finops/voiceflow-finops.yml
+  - type: Integrations
+    url: https://www.voiceflow.com/integrations
+integrations:
+  - name: Airtable
+  - name: Discord
+  - name: Hubspot
+  - name: Linear
+  - name: Manychat
+  - name: Notion
+  - name: SendGrid
+  - name: Shopify
+  - name: WhatsApp
+  - name: Zendesk
+  - name: ActiveCampaign
+  - name: Acuity Scheduling
+  - name: Adalo
+  - name: Adobe Analytics
+  - name: Adobe Commerce
+  - name: Adobe Sign
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
