@@ -1,7 +1,7 @@
 aid: voiceflow
 url: https://raw.githubusercontent.com/api-evangelist/voiceflow/refs/heads/main/apis.yml
 name: Voiceflow
-x-type: company
+kind: company
 description: >-
   Voiceflow is a conversational AI design and orchestration platform for building chat and
   voice agents with no-code flows, knowledge bases, and tool integrations. The Voiceflow
