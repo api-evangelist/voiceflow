@@ -47,6 +47,10 @@ apis:
       - type: LLMsTxt
         url: https://docs.voiceflow.com/llms.txt
 common:
+  - type: GitHubOrganization
+    url: https://github.com/voiceflow
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/voiceflowhq
   - type: Website
     url: https://www.voiceflow.com/
   - type: Documentation
