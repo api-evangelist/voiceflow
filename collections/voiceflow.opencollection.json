@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Voiceflow Conversations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Interact",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Interact (v4) — run an agent turn (non-streaming)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID/interact",
+            "headers": [
+              {
+                "name": "versionID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends an action to a Voiceflow agent and returns an array of `trace` events\ndescribing what the agent did this turn. Use the `request` action to send\nend-user input; use `launch` to begin a new conversation.\n"
+        },
+        {
+          "info": {
+            "name": "Interact (v4) — run an agent turn with Server-Sent Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID/interact/stream",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Same semantics as `/state/user/{userID}/interact` but streams `trace` events\nback as Server-Sent Events for incremental rendering.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "State",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get conversation state",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ]
+          },
+          "docs": "Get conversation state"
+        },
+        {
+          "info": {
+            "name": "Replace conversation state",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace conversation state"
+        },
+        {
+          "info": {
+            "name": "Delete all session data for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ]
+          },
+          "docs": "Delete all session data for the user"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Variables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Merge variables into current state",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID/variables",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Merge variables into current state"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Session",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start a new session (v4)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://general-runtime.voiceflow.com/v2/state/user/:userID/session/start",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start a new session (v4)"
+        },
+        {
+          "info": {
+            "name": "Emit a session event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://general-runtime.voiceflow.com/v2/state/user/:userID/session/emit",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Emit a session event"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

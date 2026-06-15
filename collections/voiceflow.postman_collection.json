@@ -1,0 +1,1048 @@
+{
+  "item": [
+    {
+      "id": "6932c149-064f-49e9-b4ba-226f7958a60e",
+      "name": "Interact",
+      "description": {
+        "content": "Run a turn against a Voiceflow agent.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "162e4e8e-269a-4b01-b77f-2c4b1b614406",
+          "name": "Interact (v4) — run an agent turn (non-streaming)",
+          "request": {
+            "name": "Interact (v4) — run an agent turn (non-streaming)",
+            "description": {
+              "content": "Sends an action to a Voiceflow agent and returns an array of `trace` events\ndescribing what the agent did this turn. Use the `request` action to send\nend-user input; use `launch` to begin a new conversation.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID",
+                "interact"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Project version (defaults to `production`).",
+                "key": "versionID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": {\n    \"type\": \"<string>\",\n    \"payload\": {\n      \"key_0\": 6364.715675916551,\n      \"key_1\": 6235,\n      \"key_2\": true\n    }\n  },\n  \"config\": {\n    \"tts\": \"<boolean>\",\n    \"stripSSML\": \"<boolean>\",\n    \"stopAll\": \"<boolean>\",\n    \"excludeTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"state\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": false,\n    \"key_3\": false\n  },\n  \"verbose\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dea679ee-b1e6-476b-ae32-20c82e0da1cf",
+              "name": "Array of trace events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID",
+                    "interact"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Project version (defaults to `production`).",
+                    "key": "versionID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": {\n    \"type\": \"launch\",\n    \"payload\": {\n      \"key_0\": 7855\n    }\n  },\n  \"config\": {\n    \"tts\": \"<boolean>\",\n    \"stripSSML\": \"<boolean>\",\n    \"stopAll\": \"<boolean>\",\n    \"excludeTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"state\": {\n    \"key_0\": true,\n    \"key_1\": 3051,\n    \"key_2\": 2724,\n    \"key_3\": \"string\",\n    \"key_4\": 5832.916809347117\n  },\n  \"verbose\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"speak\",\n    \"payload\": {\n      \"key_0\": 7526,\n      \"key_1\": false\n    }\n  },\n  {\n    \"type\": \"speak\",\n    \"payload\": {\n      \"key_0\": 4548,\n      \"key_1\": 1924.8467665835456,\n      \"key_2\": 3232.0512206058825\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98844bb9-92ac-4c19-b549-81f7a49130a2",
+              "name": "Missing or invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID",
+                    "interact"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Project version (defaults to `production`).",
+                    "key": "versionID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": {\n    \"type\": \"launch\",\n    \"payload\": {\n      \"key_0\": 7855\n    }\n  },\n  \"config\": {\n    \"tts\": \"<boolean>\",\n    \"stripSSML\": \"<boolean>\",\n    \"stopAll\": \"<boolean>\",\n    \"excludeTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"state\": {\n    \"key_0\": true,\n    \"key_1\": 3051,\n    \"key_2\": 2724,\n    \"key_3\": \"string\",\n    \"key_4\": 5832.916809347117\n  },\n  \"verbose\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08193af1-46e4-449e-8958-5d60f891a8b9",
+          "name": "Interact (v4) — run an agent turn with Server-Sent Events",
+          "request": {
+            "name": "Interact (v4) — run an agent turn with Server-Sent Events",
+            "description": {
+              "content": "Same semantics as `/state/user/{userID}/interact` but streams `trace` events\nback as Server-Sent Events for incremental rendering.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID",
+                "interact",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": {\n    \"type\": \"<string>\",\n    \"payload\": {\n      \"key_0\": 6364.715675916551,\n      \"key_1\": 6235,\n      \"key_2\": true\n    }\n  },\n  \"config\": {\n    \"tts\": \"<boolean>\",\n    \"stripSSML\": \"<boolean>\",\n    \"stopAll\": \"<boolean>\",\n    \"excludeTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"state\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": false,\n    \"key_3\": false\n  },\n  \"verbose\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39e1f39d-9508-4135-9fcc-9b24be561fae",
+              "name": "text/event-stream of trace events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID",
+                    "interact",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/event-stream"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": {\n    \"type\": \"launch\",\n    \"payload\": {\n      \"key_0\": 7855\n    }\n  },\n  \"config\": {\n    \"tts\": \"<boolean>\",\n    \"stripSSML\": \"<boolean>\",\n    \"stopAll\": \"<boolean>\",\n    \"excludeTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"state\": {\n    \"key_0\": true,\n    \"key_1\": 3051,\n    \"key_2\": 2724,\n    \"key_3\": \"string\",\n    \"key_4\": 5832.916809347117\n  },\n  \"verbose\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/event-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9f67684f-cca4-40e4-abd0-d4ab112d0b68",
+      "name": "State",
+      "description": {
+        "content": "Read, replace, or delete the conversation state for a user.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7761725-9dcf-4834-b680-51bff456b96b",
+          "name": "Get conversation state",
+          "request": {
+            "name": "Get conversation state",
+            "description": {},
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4eafae5-79aa-431f-b0f3-341b6a849df8",
+              "name": "Current state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variables\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  },\n  \"stack\": [\n    {\n      \"key_0\": 6717.761490830217,\n      \"key_1\": 3795\n    },\n    {\n      \"key_0\": false\n    }\n  ],\n  \"storage\": {\n    \"key_0\": true,\n    \"key_1\": 9411\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c192a43-bd83-4b5e-8b3e-c658d001083d",
+          "name": "Replace conversation state",
+          "request": {
+            "name": "Replace conversation state",
+            "description": {},
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"variables\": {\n    \"key_0\": 5047\n  },\n  \"stack\": [\n    {\n      \"key_0\": true,\n      \"key_1\": 6854.9477006298475\n    },\n    {\n      \"key_0\": 4490.216701377813,\n      \"key_1\": 1083\n    }\n  ],\n  \"storage\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d7e5b20-4a4c-4bb7-b725-7cb4e4168b4e",
+              "name": "Updated state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"variables\": {\n    \"key_0\": 6531.723186434913\n  },\n  \"stack\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": true\n    }\n  ],\n  \"storage\": {\n    \"key_0\": 8642.085520510667\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variables\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  },\n  \"stack\": [\n    {\n      \"key_0\": 6717.761490830217,\n      \"key_1\": 3795\n    },\n    {\n      \"key_0\": false\n    }\n  ],\n  \"storage\": {\n    \"key_0\": true,\n    \"key_1\": 9411\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fde8f49-d2c0-4a0c-959c-fcd8c4be8fc7",
+          "name": "Delete all session data for the user",
+          "request": {
+            "name": "Delete all session data for the user",
+            "description": {},
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "258219a1-a729-41bd-b8bb-f36322ed68b8",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7dab7cb7-29ef-444d-a6c0-7d72a5b15075",
+      "name": "Variables",
+      "description": {
+        "content": "Patch session variables.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "683001e6-e9ac-4b0c-83a6-01736032eccb",
+          "name": "Merge variables into current state",
+          "request": {
+            "name": "Merge variables into current state",
+            "description": {},
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID",
+                "variables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 481.2454328751681\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "67ef84e3-d049-43c9-8f35-979d9cdb2fae",
+              "name": "Updated state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID",
+                    "variables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 1084.7491315148038,\n  \"key_1\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variables\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  },\n  \"stack\": [\n    {\n      \"key_0\": 6717.761490830217,\n      \"key_1\": 3795\n    },\n    {\n      \"key_0\": false\n    }\n  ],\n  \"storage\": {\n    \"key_0\": true,\n    \"key_1\": 9411\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "85fb9507-e013-47ae-990b-86a1b05af514",
+      "name": "Session",
+      "description": {
+        "content": "Start a session and emit session events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e22ce308-4e4f-4d55-bbbc-0a2270cc1c70",
+          "name": "Start a new session (v4)",
+          "request": {
+            "name": "Start a new session (v4)",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "state",
+                "user",
+                ":userID",
+                "session",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": true,\n  \"key_1\": 1607,\n  \"key_2\": 5771.9417526523375,\n  \"key_3\": 6944.1755812054125\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6b2c535-d438-4418-aa8b-497e6590038f",
+              "name": "Session started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "state",
+                    "user",
+                    ":userID",
+                    "session",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 8822,\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "066f16aa-b5bc-4adc-9543-abc36750493d",
+          "name": "Emit a session event",
+          "request": {
+            "name": "Emit a session event",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "state",
+                "user",
+                ":userID",
+                "session",
+                "emit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": {\n    \"name\": \"<string>\",\n    \"payload\": {\n      \"key_0\": false,\n      \"key_1\": 3614,\n      \"key_2\": 7699,\n      \"key_3\": \"string\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "051b5a08-50ce-4d6a-9a9c-6209781ec0ed",
+              "name": "Event accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "state",
+                    "user",
+                    ":userID",
+                    "session",
+                    "emit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": {\n    \"name\": \"<string>\",\n    \"payload\": {\n      \"key_0\": 3322.4177216342778\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://general-runtime.voiceflow.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9647900c-45f5-4ee1-bf54-77a2c58c8a27",
+    "name": "Voiceflow Conversations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic\ninteraction with Voiceflow agents — running turns, managing session state, and\nmodifying conversation variables.\n\nDocumentation: https://docs.voiceflow.com/reference\n\n\nContact Support:\n Name: Voiceflow Docs",
+      "type": "text/plain"
+    }
+  }
+}
