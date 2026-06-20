@@ -8,7 +8,7 @@ description: >-
   Conversations API (formerly Dialog Manager API) enables programmatic interaction with
   Voiceflow agents — running turns, managing session state, and modifying conversation
   variables. Authentication via API key.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - Conversational
@@ -28,7 +28,7 @@ apis:
       (non-stream and SSE stream), Get/Update Conversation State, Update Conversation
       Variables, Start Session, and Emit Session Event. Base URL is
       https://general-runtime.voiceflow.com.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.voiceflow.com/reference
     baseURL: https://general-runtime.voiceflow.com
     tags:
