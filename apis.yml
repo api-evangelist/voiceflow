@@ -40,11 +40,11 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.voiceflow.com/reference
-      - type: SignUp
+      - type: Signup
         url: https://creator.voiceflow.com/
       - type: Pricing
         url: https://www.voiceflow.com/pricing
-      - type: LLMsTxt
+      - type: LlmsText
         url: https://docs.voiceflow.com/llms.txt
 common:
   - type: GitHubOrganization
