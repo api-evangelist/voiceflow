@@ -47,6 +47,14 @@ apis:
       - type: LlmsText
         url: https://docs.voiceflow.com/llms.txt
 common:
+  - type: TrustCenter
+    url: security/voiceflow-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/voiceflow-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/voiceflow-domain-security.yml
+  - type: Authentication
+    url: authentication/voiceflow-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/voiceflow
   - type: LinkedIn
@@ -63,6 +71,8 @@ common:
     url: finops/voiceflow-finops.yml
   - type: Integrations
     url: https://www.voiceflow.com/integrations
+  - type: Blog
+    url: https://www.voiceflow.com/blog
 integrations:
   - name: Airtable
   - name: Discord

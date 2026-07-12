@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/voiceflow-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: |-
+    Voiceflow Dialog Manager API key (format `VF.DM.*`) sent in the
+    `Authorization` header.
+  sources:
+  - openapi/voiceflow-openapi.yml
