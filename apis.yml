@@ -47,6 +47,8 @@ apis:
       - type: LlmsText
         url: https://docs.voiceflow.com/llms.txt
 common:
+  - type: AgenticAccess
+    url: agentic-access/voiceflow-agentic-access.yml
   - type: TrustCenter
     url: security/voiceflow-trust-center.yml
   - type: VulnerabilityDisclosure
