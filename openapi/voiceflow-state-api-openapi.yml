@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: Voiceflow Conversations Interact State API
+  version: 1.0.0
+  summary: REST + SSE API for running Voiceflow agent turns and managing session state.
+  description: 'The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic
+
+    interaction with Voiceflow agents — running turns, managing session state, and
+
+    modifying conversation variables.
+
+
+    Documentation: https://docs.voiceflow.com/reference
+
+    '
+  contact:
+    name: Voiceflow Docs
+    url: https://docs.voiceflow.com/reference
+servers:
+- url: https://general-runtime.voiceflow.com
+  description: Voiceflow general runtime
+security:
+- apiKey: []
+tags:
+- name: State
+  description: Read, replace, or delete the conversation state for a user.
+paths:
+  /state/user/{userID}:
+    get:
+      tags:
+      - State
+      summary: Get conversation state
+      operationId: getConversationState
+      parameters:
+      - $ref: '#/components/parameters/UserID'
+      responses:
+        '200':
+          description: Current state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationState'
+    put:
+      tags:
+      - State
+      summary: Replace conversation state
+      operationId: updateConversationState
+      parameters:
+      - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationState'
+      responses:
+        '200':
+          description: Updated state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationState'
+    delete:
+      tags:
+      - State
+      summary: Delete all session data for the user
+      operationId: deleteConversationState
+      parameters:
+      - $ref: '#/components/parameters/UserID'
+      responses:
+        '200':
+          description: Deleted
+components:
+  schemas:
+    ConversationState:
+      type: object
+      properties:
+        variables:
+          type: object
+          additionalProperties: true
+        stack:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        storage:
+          type: object
+          additionalProperties: true
+  parameters:
+    UserID:
+      name: userID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Stable identifier for the end user / conversation participant.
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Voiceflow Dialog Manager API key (format `VF.DM.*`) sent in the
+
+        `Authorization` header.
+
+        '

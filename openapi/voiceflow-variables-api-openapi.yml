@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Voiceflow Conversations Interact Variables API
+  version: 1.0.0
+  summary: REST + SSE API for running Voiceflow agent turns and managing session state.
+  description: 'The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic
+
+    interaction with Voiceflow agents — running turns, managing session state, and
+
+    modifying conversation variables.
+
+
+    Documentation: https://docs.voiceflow.com/reference
+
+    '
+  contact:
+    name: Voiceflow Docs
+    url: https://docs.voiceflow.com/reference
+servers:
+- url: https://general-runtime.voiceflow.com
+  description: Voiceflow general runtime
+security:
+- apiKey: []
+tags:
+- name: Variables
+  description: Patch session variables.
+paths:
+  /state/user/{userID}/variables:
+    patch:
+      tags:
+      - Variables
+      summary: Merge variables into current state
+      operationId: updateVariables
+      parameters:
+      - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Key/value map of variables to merge into session state.
+      responses:
+        '200':
+          description: Updated state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationState'
+components:
+  schemas:
+    ConversationState:
+      type: object
+      properties:
+        variables:
+          type: object
+          additionalProperties: true
+        stack:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        storage:
+          type: object
+          additionalProperties: true
+  parameters:
+    UserID:
+      name: userID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Stable identifier for the end user / conversation participant.
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Voiceflow Dialog Manager API key (format `VF.DM.*`) sent in the
+
+        `Authorization` header.
+
+        '

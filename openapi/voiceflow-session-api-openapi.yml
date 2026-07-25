@@ -1,0 +1,94 @@
+openapi: 3.1.0
+info:
+  title: Voiceflow Conversations Interact Session API
+  version: 1.0.0
+  summary: REST + SSE API for running Voiceflow agent turns and managing session state.
+  description: 'The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic
+
+    interaction with Voiceflow agents — running turns, managing session state, and
+
+    modifying conversation variables.
+
+
+    Documentation: https://docs.voiceflow.com/reference
+
+    '
+  contact:
+    name: Voiceflow Docs
+    url: https://docs.voiceflow.com/reference
+servers:
+- url: https://general-runtime.voiceflow.com
+  description: Voiceflow general runtime
+security:
+- apiKey: []
+tags:
+- name: Session
+  description: Start a session and emit session events.
+paths:
+  /v2/state/user/{userID}/session/start:
+    post:
+      tags:
+      - Session
+      summary: Start a new session (v4)
+      operationId: startSession
+      parameters:
+      - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Session started
+  /v2/state/user/{userID}/session/emit:
+    post:
+      tags:
+      - Session
+      summary: Emit a session event
+      operationId: emitSessionEvent
+      parameters:
+      - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - event
+              properties:
+                event:
+                  type: object
+                  required:
+                  - name
+                  properties:
+                    name:
+                      type: string
+                    payload:
+                      type: object
+                      additionalProperties: true
+      responses:
+        '200':
+          description: Event accepted
+components:
+  parameters:
+    UserID:
+      name: userID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Stable identifier for the end user / conversation participant.
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Voiceflow Dialog Manager API key (format `VF.DM.*`) sent in the
+
+        `Authorization` header.
+
+        '
