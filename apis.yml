@@ -8,7 +8,20 @@ description: >-
   Conversations API (formerly Dialog Manager API) enables programmatic interaction with
   Voiceflow agents — running turns, managing session state, and modifying conversation
   variables. Authentication via API key.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Freemium (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/voiceflow.png
 tags:
   - AI
   - Conversational
@@ -20,32 +33,71 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: voiceflow:conversations
-    name: Voiceflow Conversations API
-    description: >-
-      REST + SSE API for running Voiceflow agent turns, managing conversation state,
-      updating variables, and emitting session events. Endpoints include Interact v4
-      (non-stream and SSE stream), Get/Update Conversation State, Update Conversation
-      Variables, Start Session, and Emit Session Event. Base URL is
-      https://general-runtime.voiceflow.com.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.voiceflow.com/reference
-    baseURL: https://general-runtime.voiceflow.com
-    tags:
-      - Conversations
-      - Dialog Manager
-      - Streaming
-      - Sessions
-      - State
-    properties:
-      - type: Documentation
-        url: https://docs.voiceflow.com/reference
-      - type: Signup
-        url: https://creator.voiceflow.com/
-      - type: Pricing
-        url: https://www.voiceflow.com/pricing
-      - type: LlmsText
-        url: https://docs.voiceflow.com/llms.txt
+- aid: voiceflow:conversations
+  name: Voiceflow Conversations API
+  description: >-
+    REST + SSE API for running Voiceflow agent turns, managing conversation state, updating variables,
+    and emitting session events. Endpoints include Interact v4 (non-stream and SSE stream), Get/Update
+    Conversation State, Update Conversation Variables, Start Session, and Emit Session Event. Base URL
+    is https://general-runtime.voiceflow.com.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.voiceflow.com/reference
+  baseURL: https://general-runtime.voiceflow.com
+  tags:
+  - Conversations
+  - Dialog Manager
+  - Streaming
+  - Sessions
+  - State
+  properties:
+  - type: Documentation
+    url: https://docs.voiceflow.com/reference
+  - type: Signup
+    url: https://creator.voiceflow.com/
+  - type: Pricing
+    url: https://www.voiceflow.com/pricing
+  - type: LlmsText
+    url: https://docs.voiceflow.com/llms.txt
+- aid: voiceflow:voiceflow-interact-api
+  name: Voiceflow Interact API
+  description: Run a turn against a Voiceflow agent.
+  humanURL: https://docs.voiceflow.com/reference
+  baseURL: https://general-runtime.voiceflow.com
+  tags:
+  - Interact
+  properties:
+  - type: OpenAPI
+    url: openapi/voiceflow-interact-api-openapi.yml
+- aid: voiceflow:voiceflow-session-api
+  name: Voiceflow Session API
+  description: Start a session and emit session events.
+  humanURL: https://docs.voiceflow.com/reference
+  baseURL: https://general-runtime.voiceflow.com
+  tags:
+  - Session
+  properties:
+  - type: OpenAPI
+    url: openapi/voiceflow-session-api-openapi.yml
+- aid: voiceflow:voiceflow-state-api
+  name: Voiceflow State API
+  description: Read, replace, or delete the conversation state for a user.
+  humanURL: https://docs.voiceflow.com/reference
+  baseURL: https://general-runtime.voiceflow.com
+  tags:
+  - State
+  properties:
+  - type: OpenAPI
+    url: openapi/voiceflow-state-api-openapi.yml
+- aid: voiceflow:voiceflow-variables-api
+  name: Voiceflow Variables API
+  description: Patch session variables.
+  humanURL: https://docs.voiceflow.com/reference
+  baseURL: https://general-runtime.voiceflow.com
+  tags:
+  - Variables
+  properties:
+  - type: OpenAPI
+    url: openapi/voiceflow-variables-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/voiceflow-agentic-access.yml
