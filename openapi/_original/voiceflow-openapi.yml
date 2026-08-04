@@ -1,0 +1,263 @@
+openapi: 3.1.0
+info:
+  title: Voiceflow Conversations API
+  version: "1.0.0"
+  summary: REST + SSE API for running Voiceflow agent turns and managing session state.
+  description: |
+    The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic
+    interaction with Voiceflow agents — running turns, managing session state, and
+    modifying conversation variables.
+
+    Documentation: https://docs.voiceflow.com/reference
+  contact:
+    name: Voiceflow Docs
+    url: https://docs.voiceflow.com/reference
+servers:
+  - url: https://general-runtime.voiceflow.com
+    description: Voiceflow general runtime
+security:
+  - apiKey: []
+tags:
+  - name: Interact
+    description: Run a turn against a Voiceflow agent.
+  - name: State
+    description: Read, replace, or delete the conversation state for a user.
+  - name: Variables
+    description: Patch session variables.
+  - name: Session
+    description: Start a session and emit session events.
+paths:
+  /state/user/{userID}/interact:
+    post:
+      tags: [Interact]
+      summary: Interact (v4) — run an agent turn (non-streaming)
+      description: |
+        Sends an action to a Voiceflow agent and returns an array of `trace` events
+        describing what the agent did this turn. Use the `request` action to send
+        end-user input; use `launch` to begin a new conversation.
+      operationId: interactV4
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+        - in: header
+          name: versionID
+          required: false
+          schema: { type: string }
+          description: Project version (defaults to `production`).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InteractRequest'
+      responses:
+        "200":
+          description: Array of trace events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trace'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+  /state/user/{userID}/interact/stream:
+    post:
+      tags: [Interact]
+      summary: Interact (v4) — run an agent turn with Server-Sent Events
+      description: |
+        Same semantics as `/state/user/{userID}/interact` but streams `trace` events
+        back as Server-Sent Events for incremental rendering.
+      operationId: interactV4Stream
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InteractRequest'
+      responses:
+        "200":
+          description: text/event-stream of trace events
+          content:
+            text/event-stream:
+              schema:
+                type: string
+  /state/user/{userID}:
+    get:
+      tags: [State]
+      summary: Get conversation state
+      operationId: getConversationState
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      responses:
+        "200":
+          description: Current state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationState'
+    put:
+      tags: [State]
+      summary: Replace conversation state
+      operationId: updateConversationState
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationState'
+      responses:
+        "200":
+          description: Updated state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationState'
+    delete:
+      tags: [State]
+      summary: Delete all session data for the user
+      operationId: deleteConversationState
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      responses:
+        "200": { description: Deleted }
+  /state/user/{userID}/variables:
+    patch:
+      tags: [Variables]
+      summary: Merge variables into current state
+      operationId: updateVariables
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Key/value map of variables to merge into session state.
+      responses:
+        "200":
+          description: Updated state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationState'
+  /v2/state/user/{userID}/session/start:
+    post:
+      tags: [Session]
+      summary: Start a new session (v4)
+      operationId: startSession
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200": { description: Session started }
+  /v2/state/user/{userID}/session/emit:
+    post:
+      tags: [Session]
+      summary: Emit a session event
+      operationId: emitSessionEvent
+      parameters:
+        - $ref: '#/components/parameters/UserID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [event]
+              properties:
+                event:
+                  type: object
+                  required: [name]
+                  properties:
+                    name: { type: string }
+                    payload:
+                      type: object
+                      additionalProperties: true
+      responses:
+        "200": { description: Event accepted }
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: |
+        Voiceflow Dialog Manager API key (format `VF.DM.*`) sent in the
+        `Authorization` header.
+  parameters:
+    UserID:
+      name: userID
+      in: path
+      required: true
+      schema: { type: string }
+      description: Stable identifier for the end user / conversation participant.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    InteractRequest:
+      type: object
+      properties:
+        action:
+          type: object
+          description: Action sent to the agent (e.g. `launch` or `request` with text).
+          properties:
+            type: { type: string, examples: [launch, text, intent] }
+            payload:
+              type: object
+              additionalProperties: true
+        config:
+          type: object
+          properties:
+            tts: { type: boolean }
+            stripSSML: { type: boolean }
+            stopAll: { type: boolean }
+            excludeTypes:
+              type: array
+              items: { type: string }
+        state:
+          type: object
+          additionalProperties: true
+        verbose: { type: boolean }
+    Trace:
+      type: object
+      description: Event emitted by the agent for this turn.
+      properties:
+        type: { type: string, examples: [speak, text, choice, end, debug] }
+        payload:
+          type: object
+          additionalProperties: true
+    ConversationState:
+      type: object
+      properties:
+        variables:
+          type: object
+          additionalProperties: true
+        stack:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        storage:
+          type: object
+          additionalProperties: true
+    Error:
+      type: object
+      properties:
+        message: { type: string }
+        code: { type: string }

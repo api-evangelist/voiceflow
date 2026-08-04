@@ -1,0 +1,20 @@
+{
+  "provider": "voiceflow",
+  "sources": [
+    "voiceflow-interact-api-openapi.yml",
+    "voiceflow-session-api-openapi.yml",
+    "voiceflow-state-api-openapi.yml",
+    "voiceflow-variables-api-openapi.yml"
+  ],
+  "outputs": [
+    "voiceflow-interact-api-openapi.yml",
+    "voiceflow-session-api-openapi.yml",
+    "voiceflow-state-api-openapi.yml",
+    "voiceflow-variables-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
