@@ -1,0 +1,345 @@
+{
+  "item": [
+    {
+      "id": "97b9b991-1c6b-415c-80f2-e08133065c95",
+      "name": "State",
+      "description": {
+        "content": "Read, replace, or delete the conversation state for a user.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1989fbb-fd82-49d4-a2e5-baeae2dbf464",
+          "name": "Get conversation state",
+          "request": {
+            "name": "Get conversation state",
+            "description": {},
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c3f95f8-e646-4ac2-b6e7-c4d8540f8524",
+              "name": "Current state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variables\": {\n    \"key_0\": false,\n    \"key_1\": 5567.670835641408\n  },\n  \"stack\": [\n    {\n      \"key_0\": 9771,\n      \"key_1\": 5090\n    },\n    {\n      \"key_0\": true\n    }\n  ],\n  \"storage\": {\n    \"key_0\": 3577\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92ba3000-6a72-4610-8b75-e701340bc219",
+          "name": "Replace conversation state",
+          "request": {
+            "name": "Replace conversation state",
+            "description": {},
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"variables\": {\n    \"key_0\": \"string\",\n    \"key_1\": 7891.857753520954\n  },\n  \"stack\": [\n    {\n      \"key_0\": false,\n      \"key_1\": 3533.7855844505793\n    },\n    {\n      \"key_0\": 1767\n    }\n  ],\n  \"storage\": {\n    \"key_0\": 4051,\n    \"key_1\": 4409.994963408643\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6abc418d-1083-4ed2-837c-b7cfba641096",
+              "name": "Updated state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"variables\": {\n    \"key_0\": true\n  },\n  \"stack\": [\n    {\n      \"key_0\": 4193,\n      \"key_1\": 7014.496957889872,\n      \"key_2\": \"string\"\n    },\n    {\n      \"key_0\": true,\n      \"key_1\": 611\n    }\n  ],\n  \"storage\": {\n    \"key_0\": true,\n    \"key_1\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variables\": {\n    \"key_0\": false,\n    \"key_1\": 5567.670835641408\n  },\n  \"stack\": [\n    {\n      \"key_0\": 9771,\n      \"key_1\": 5090\n    },\n    {\n      \"key_0\": true\n    }\n  ],\n  \"storage\": {\n    \"key_0\": 3577\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7eca55b3-b8c5-4b32-97a8-87e178a17bb6",
+          "name": "Delete all session data for the user",
+          "request": {
+            "name": "Delete all session data for the user",
+            "description": {},
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e0c887f-9a28-4f16-a02a-f79c3fee9847",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://general-runtime.voiceflow.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6b3fe3be-0144-4620-a0cf-22e89b14e368",
+    "name": "Voiceflow Conversations Interact State API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic\ninteraction with Voiceflow agents — running turns, managing session state, and\nmodifying conversation variables.\n\nDocumentation: https://docs.voiceflow.com/reference\n\n\nContact Support:\n Name: Voiceflow Docs",
+      "type": "text/plain"
+    }
+  }
+}

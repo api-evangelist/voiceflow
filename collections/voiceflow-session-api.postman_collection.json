@@ -1,0 +1,277 @@
+{
+  "item": [
+    {
+      "id": "d67f9748-86b1-4eb2-97dc-36bcfedb1f56",
+      "name": "Session",
+      "description": {
+        "content": "Start a session and emit session events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de414977-b155-441b-8159-b424ac773131",
+          "name": "Start a new session (v4)",
+          "request": {
+            "name": "Start a new session (v4)",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "state",
+                "user",
+                ":userID",
+                "session",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": false,\n  \"key_1\": \"string\",\n  \"key_2\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f8dce9d-b6ce-4bde-995b-262ea78c9e77",
+              "name": "Session started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "state",
+                    "user",
+                    ":userID",
+                    "session",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62802357-5d2a-483e-8b92-5458f84a6840",
+          "name": "Emit a session event",
+          "request": {
+            "name": "Emit a session event",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "state",
+                "user",
+                ":userID",
+                "session",
+                "emit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": {\n    \"name\": \"<string>\",\n    \"payload\": {\n      \"key_0\": 2168.2795938834574,\n      \"key_1\": \"string\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04f703c9-a5e3-48e9-b5ec-ad41f5828eca",
+              "name": "Event accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "state",
+                    "user",
+                    ":userID",
+                    "session",
+                    "emit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": {\n    \"name\": \"<string>\",\n    \"payload\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": 5257,\n      \"key_3\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://general-runtime.voiceflow.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "61cc15e1-6bee-499a-ae52-ab68a0a5a357",
+    "name": "Voiceflow Conversations Interact Session API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic\ninteraction with Voiceflow agents — running turns, managing session state, and\nmodifying conversation variables.\n\nDocumentation: https://docs.voiceflow.com/reference\n\n\nContact Support:\n Name: Voiceflow Docs",
+      "type": "text/plain"
+    }
+  }
+}

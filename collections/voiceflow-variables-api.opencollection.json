@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Voiceflow Conversations Interact Variables API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Variables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Merge variables into current state",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID/variables",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Merge variables into current state"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

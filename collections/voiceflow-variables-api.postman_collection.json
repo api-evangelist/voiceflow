@@ -1,0 +1,167 @@
+{
+  "item": [
+    {
+      "id": "0a1cae76-5238-41b6-9142-1b88a29244ec",
+      "name": "Variables",
+      "description": {
+        "content": "Patch session variables.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cda9ba18-0900-406e-922d-de2a078dec1f",
+          "name": "Merge variables into current state",
+          "request": {
+            "name": "Merge variables into current state",
+            "description": {},
+            "url": {
+              "path": [
+                "state",
+                "user",
+                ":userID",
+                "variables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) Stable identifier for the end user / conversation participant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 8809.591245768508\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b03c553-a6aa-471f-8409-fa2b80c19ce0",
+              "name": "Updated state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "state",
+                    "user",
+                    ":userID",
+                    "variables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) Stable identifier for the end user / conversation participant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 1380.81424040303,\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variables\": {\n    \"key_0\": true,\n    \"key_1\": 9836.816846744698,\n    \"key_2\": \"string\",\n    \"key_3\": true\n  },\n  \"stack\": [\n    {\n      \"key_0\": 7622.283904630105,\n      \"key_1\": 8962.44377174933\n    },\n    {\n      \"key_0\": 1788,\n      \"key_1\": 1179.2602992244904\n    }\n  ],\n  \"storage\": {\n    \"key_0\": true,\n    \"key_1\": true,\n    \"key_2\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://general-runtime.voiceflow.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7f684baf-98a0-468f-ac29-e828cfeeccaf",
+    "name": "Voiceflow Conversations Interact Variables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic\ninteraction with Voiceflow agents — running turns, managing session state, and\nmodifying conversation variables.\n\nDocumentation: https://docs.voiceflow.com/reference\n\n\nContact Support:\n Name: Voiceflow Docs",
+      "type": "text/plain"
+    }
+  }
+}

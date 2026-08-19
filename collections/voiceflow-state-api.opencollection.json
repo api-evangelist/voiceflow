@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Voiceflow Conversations Interact State API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "State",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get conversation state",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ]
+          },
+          "docs": "Get conversation state"
+        },
+        {
+          "info": {
+            "name": "Replace conversation state",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace conversation state"
+        },
+        {
+          "info": {
+            "name": "Delete all session data for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://general-runtime.voiceflow.com/state/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "Stable identifier for the end user / conversation participant."
+              }
+            ]
+          },
+          "docs": "Delete all session data for the user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
