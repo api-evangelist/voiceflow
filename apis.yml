@@ -23,6 +23,13 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/voiceflow.png
 tags:
+  - Artificial Intelligence
+  - Conversational
+  - Chat
+  - Voice
+  - Agent Builder
+  - Dialog Manager
+tags_raw:
   - AI
   - Conversational
   - Chat
@@ -44,6 +51,12 @@ apis:
   humanURL: https://docs.voiceflow.com/reference
   baseURL: https://general-runtime.voiceflow.com
   tags:
+  - Conversations
+  - Dialog Manager
+  - Streaming
+  - Sessions
+  - States
+  tags_raw:
   - Conversations
   - Dialog Manager
   - Streaming
@@ -84,6 +97,8 @@ apis:
   humanURL: https://docs.voiceflow.com/reference
   baseURL: https://general-runtime.voiceflow.com
   tags:
+  - States
+  tags_raw:
   - State
   properties:
   - type: OpenAPI
