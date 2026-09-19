@@ -100,6 +100,8 @@ apis:
   humanURL: https://docs.voiceflow.com/reference
   baseURL: https://general-runtime.voiceflow.com
   tags:
+  - Sessions
+  tags_raw:
   - Session
   properties:
   - type: OpenAPI
