@@ -1,0 +1,1 @@
+{"resource":"https://mcp.voiceflow.com/mcp","resource_name":"Voiceflow MCP","scopes_supported":["universal.workspace.read","universal.workspace.write"],"bearer_methods_supported":["header"],"authorization_servers":["https://auth-api.voiceflow.com"]}

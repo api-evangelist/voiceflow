@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Voiceflow Conversations Interact State API
+  title: Voiceflow Conversations State API
   version: 1.0.0
   summary: REST + SSE API for running Voiceflow agent turns and managing session state.
   description: 'The Voiceflow Conversations API (formerly Dialog Manager API) enables programmatic
@@ -10,9 +10,7 @@ info:
     modifying conversation variables.
 
 
-    Documentation: https://docs.voiceflow.com/reference
-
-    '
+    Documentation: https://docs.voiceflow.com/reference'
   contact:
     name: Voiceflow Docs
     url: https://docs.voiceflow.com/reference
@@ -71,6 +69,14 @@ paths:
         '200':
           description: Deleted
 components:
+  parameters:
+    UserID:
+      name: userID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Stable identifier for the end user / conversation participant.
   schemas:
     ConversationState:
       type: object
@@ -86,14 +92,6 @@ components:
         storage:
           type: object
           additionalProperties: true
-  parameters:
-    UserID:
-      name: userID
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Stable identifier for the end user / conversation participant.
   securitySchemes:
     apiKey:
       type: apiKey

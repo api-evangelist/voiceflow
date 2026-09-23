@@ -1,10 +1,7 @@
 {
   "provider": "voiceflow",
   "sources": [
-    "voiceflow-interact-api-openapi.yml",
-    "voiceflow-session-api-openapi.yml",
-    "voiceflow-state-api-openapi.yml",
-    "voiceflow-variables-api-openapi.yml"
+    "_original/voiceflow-openapi.yml"
   ],
   "outputs": [
     "voiceflow-interact-api-openapi.yml",
@@ -15,6 +12,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "voiceflow-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "voiceflow-interact-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "voiceflow-session-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "voiceflow-state-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "voiceflow-variables-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
