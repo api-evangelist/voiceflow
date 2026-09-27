@@ -85,6 +85,13 @@ paths:
                 type: string
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
     Trace:
       type: object
       description: Event emitted by the agent for this turn.
@@ -134,13 +141,6 @@ components:
           additionalProperties: true
         verbose:
           type: boolean
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: string
   parameters:
     UserID:
       name: userID
