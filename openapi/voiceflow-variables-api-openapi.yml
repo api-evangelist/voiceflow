@@ -47,6 +47,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConversationState'
 components:
+  parameters:
+    UserID:
+      name: userID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Stable identifier for the end user / conversation participant.
   schemas:
     ConversationState:
       type: object
@@ -62,14 +70,6 @@ components:
         storage:
           type: object
           additionalProperties: true
-  parameters:
-    UserID:
-      name: userID
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Stable identifier for the end user / conversation participant.
   securitySchemes:
     apiKey:
       type: apiKey
