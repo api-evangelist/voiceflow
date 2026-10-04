@@ -84,14 +84,15 @@ paths:
               schema:
                 type: string
 components:
+  parameters:
+    UserID:
+      name: userID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Stable identifier for the end user / conversation participant.
   schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: string
     Trace:
       type: object
       description: Event emitted by the agent for this turn.
@@ -107,6 +108,13 @@ components:
         payload:
           type: object
           additionalProperties: true
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
     InteractRequest:
       type: object
       properties:
@@ -141,14 +149,6 @@ components:
           additionalProperties: true
         verbose:
           type: boolean
-  parameters:
-    UserID:
-      name: userID
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Stable identifier for the end user / conversation participant.
   responses:
     Unauthorized:
       description: Missing or invalid API key
