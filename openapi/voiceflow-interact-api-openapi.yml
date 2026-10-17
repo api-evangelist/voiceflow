@@ -84,14 +84,6 @@ paths:
               schema:
                 type: string
 components:
-  parameters:
-    UserID:
-      name: userID
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Stable identifier for the end user / conversation participant.
   schemas:
     Trace:
       type: object
@@ -149,6 +141,14 @@ components:
           additionalProperties: true
         verbose:
           type: boolean
+  parameters:
+    UserID:
+      name: userID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Stable identifier for the end user / conversation participant.
   responses:
     Unauthorized:
       description: Missing or invalid API key
